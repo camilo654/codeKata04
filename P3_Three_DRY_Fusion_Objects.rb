@@ -23,9 +23,6 @@ end
 
 class Procesador
   def encontrarMenor array, posValor1, posValor2, posValorARetornar
-    array
-    array.shift
-    array[0]
     linea1 = array[0].split(" ")
     array.shift
     menorInicial = linea1[posValorARetornar]
@@ -49,5 +46,4 @@ archivo = Archivo.new('weather.dat')
 procesador = Procesador.new()
 puts procesador.encontrarMenor archivo.lineas, 1, 2, 0
 archivo.archivo = 'football.txt'
-archivo.lineas
 puts procesador.encontrarMenor archivo.lineas, 6, 8, 1

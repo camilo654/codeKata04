@@ -1,4 +1,3 @@
-#Objects
 class Archivo
   def initialize(archivo)
     @archivo = archivo
@@ -10,11 +9,8 @@ class Archivo
     arrayLineas = Array.new
     File.open( archivo, 'r') do |f1|
       f1.gets #Descarto linea de encabezados, porque no me interesa
-      #arrayLineas.push(f1.gets)
       while linea = f1.gets
-        if linea.strip[0] != "-" && !linea.strip.empty?
-          arrayLineas << linea
-        end
+        arrayLineas << linea if linea.strip[0] != "-" && !linea.strip.empty?
       end
     end
     arrayLineas
@@ -25,10 +21,8 @@ class Procesador
   def encontrarMenor array, posValor1, posValor2, posValorARetornar
     linea1 = array[0].split(" ")
     array.shift
-    menorInicial = linea1[posValorARetornar]
-    valorMenorInicial = (linea1[posValor1].to_f - linea1[posValor2].to_f).abs
-    menor = menorInicial
-    valorMenor = valorMenorInicial
+    menor = linea1[posValorARetornar]
+    valorMenor = (linea1[posValor1].to_f - linea1[posValor2].to_f).abs
 
     array.each do |linea|
       datos = linea.split(" ")
